@@ -77,10 +77,7 @@ You can keep the **Build Settings** on Vercel at their **default values**.
 * **Install Command**: `npm install`.
 * **Output Directory**: `.next`.
 
-Prisma is listed under dependencies in your `package.json`, which prompts Vercel's build runner to automatically execute `prisma generate` prior to running `next build`. If you encounter any build generation issues, you can override the **Build Command** to:
-```bash
-npx prisma generate && next build
-```
+We configured a `"postinstall": "prisma generate"` script in your `package.json` file. This automatically runs during the installation phase on Vercel, so the default build command (`npm run build` or `next build`) works out of the box.
 
 ---
 
@@ -98,7 +95,10 @@ You do **not** need a `vercel.json` file. Next.js App Router applications are na
 
 ## 8. Changed Scripts in `package.json`
 
-No scripts in `package.json` were modified. The scripts remain standard:
+Yes, the `postinstall` script was added to ensure the Prisma Client binary is compiled immediately after dependency installation:
+* `"postinstall": "prisma generate"`
+
+The standard development and production scripts remain unchanged:
 * `npm run dev` (starts development server)
 * `npm run build` (compiles Next.js)
 * `npm run start` (starts Next.js production runner)
