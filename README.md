@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎧 AURA – Luxury Audio E-Commerce Platform
 
-## Getting Started
+AURA is a modern full-stack e-commerce platform built for premium audio enthusiasts. The website offers a luxury shopping experience for high-end speakers, headphones, amplifiers, turntables, and professional audio equipment with a clean, responsive, and immersive user interface.
 
-First, run the development server:
+Designed using Next.js and Prisma, the platform combines elegant design with powerful backend functionality, making it a complete showcase of modern web development.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+- 🛍️ Premium product catalog with detailed specifications
+- 🔍 Category-based product browsing
+- 📱 Fully responsive design for desktop, tablet, and mobile
+- 🛒 Shopping cart with dynamic state management
+- 🔐 Secure user authentication with JWT
+- 👤 User account management
+- ⭐ Product reviews and ratings
+- 📩 Product inquiry and contact system
+- 🛠️ Admin dashboard for managing products, orders, and website settings
+- ⚡ Fast performance with Next.js App Router
+- 🎨 Modern luxury UI built with Tailwind CSS
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Lucide React
+
+### Backend
+- Next.js API Routes
+- Prisma ORM
+- SQLite
+- JWT Authentication
+- bcryptjs
+
+---
+
+## 📦 Database
+
+Prisma ORM with SQLite powers the application's database, managing:
+
+- Products
+- Categories
+- Users
+- Orders
+- Reviews
+- Product Inquiries
+- Website Settings
+
+---
+
+## 🚀 Key Functionalities
+
+- Browse premium audio products
+- View detailed product specifications
+- Add products to cart
+- Submit product inquiries
+- Leave ratings and reviews
+- User authentication and authorization
+- Admin product management
+- Order management
+- Responsive shopping experience
+
+---
+
+## 📸 Screenshots
+
+> Add screenshots of the Home Page, Product Details, Shopping Cart, and Admin Dashboard here.
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+ ├── app/
+ ├── components/
+ ├── context/
+ ├── lib/
+ ├── prisma/
+ ├── public/
+ └── styles/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+git clone https://github.com/your-username/aura-luxury-audio.git
 
-## Learn More
+cd aura-luxury-audio
 
-To learn more about Next.js, take a look at the following resources:
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+npx prisma generate
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+npx prisma db seed
 
-## Deploy on Vercel
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📌 Future Improvements
+
+- Payment Gateway Integration
+- Wishlist Functionality
+- Product Search & Filters
+- Order Tracking
+- Email Notifications
+- Inventory Management
+- Analytics Dashboard
+
+---
+
+## 📄 License
+
+This project was developed for educational and portfolio purposes.
