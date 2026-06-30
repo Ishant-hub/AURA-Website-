@@ -6,6 +6,8 @@ export const metadata = {
   description: "Sculptural aesthetics meet unparalleled acoustic transparency. Explore our flagship range of speakers.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function Speakers() {
   return (
     <CategoryPage

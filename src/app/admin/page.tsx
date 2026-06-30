@@ -23,7 +23,7 @@ export default async function AdminDashboard() {
     redirect("/login");
   }
 
-  // Fetch orders, products, categories, and inquiries from SQLite
+  // Fetch orders, products, categories, and inquiries from the database
   const orders = await db.order.findMany({
     include: {
       orderItems: {

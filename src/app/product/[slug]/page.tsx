@@ -27,10 +27,12 @@ export async function generateMetadata({ params }: ProductPageProps) {
   };
 }
 
+export const dynamic = "force-dynamic";
+
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
   
-  // Fetch product from SQLite database
+  // Fetch product from the database
   const product = await db.product.findUnique({
     where: { slug },
     include: {

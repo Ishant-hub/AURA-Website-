@@ -6,6 +6,8 @@ export const metadata = {
   description: "Bespoke amplification circuitry featuring vacuum tube warmth and zero-loss signal paths.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function Amplifiers() {
   return (
     <CategoryPage

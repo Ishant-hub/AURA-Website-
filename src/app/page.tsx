@@ -2,10 +2,10 @@ import React from "react";
 import db from "@/lib/db";
 import HomePageClient from "@/components/HomePageClient";
 
-export const revalidate = 60; // Revalidate every minute
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  // Fetch featured products dynamically from the SQLite DB
+  // Fetch featured products dynamically from the database
   const featuredProducts = await db.product.findMany({
     where: { isFeatured: true },
     include: { images: true },

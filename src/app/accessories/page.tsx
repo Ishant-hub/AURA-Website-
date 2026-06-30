@@ -6,6 +6,8 @@ export const metadata = {
   description: "Complete control units, balanced signal cables, and bespoke room tuning devices.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function Accessories() {
   return (
     <CategoryPage

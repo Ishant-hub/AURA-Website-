@@ -34,7 +34,7 @@ Designed using Next.js and Prisma, the platform combines elegant design with pow
 ### Backend
 - Next.js API Routes
 - Prisma ORM
-- SQLite
+- PostgreSQL (Neon)
 - JWT Authentication
 - bcryptjs
 
@@ -42,7 +42,7 @@ Designed using Next.js and Prisma, the platform combines elegant design with pow
 
 ## 📦 Database
 
-Prisma ORM with SQLite powers the application's database, managing:
+Prisma ORM with PostgreSQL (Neon) powers the application's database, managing:
 
 - Products
 - Categories

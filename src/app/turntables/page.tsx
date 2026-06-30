@@ -6,6 +6,8 @@ export const metadata = {
   description: "Magnetic levitation bearing systems and carbon fiber tonearms for flawless analog retrieval.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function Turntables() {
   return (
     <CategoryPage
