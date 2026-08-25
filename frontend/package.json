@@ -1,18 +1,13 @@
 {
-  "name": "aura-luxe-audio-root",
+  "name": "aura-luxe-audio-frontend",
   "version": "0.1.0",
   "private": true,
-  "workspaces": [
-    "frontend",
-    "backend"
-  ],
   "scripts": {
-    "dev:frontend": "npm run dev --prefix frontend",
-    "build:frontend": "npm run build --prefix frontend",
-    "start:frontend": "npm run start --prefix frontend",
-    "db:push": "npx prisma db push --schema=backend/prisma/schema.prisma",
-    "db:seed": "node backend/prisma/seed.js",
-    "db:generate": "npx prisma generate --schema=backend/prisma/schema.prisma"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
@@ -35,5 +30,8 @@
     "prisma": "^5.22.0",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }

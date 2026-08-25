@@ -77,32 +77,42 @@ Prisma ORM with PostgreSQL (Neon) powers the application's database, managing:
 ## 📂 Project Structure
 
 ```
-src/
- ├── app/
- ├── components/
- ├── context/
- ├── lib/
- ├── prisma/
- ├── public/
- └── styles/
+Electronics web/
+├── frontend/             # Next.js Frontend (UI pages, components, context, styling)
+│   ├── public/
+│   ├── src/
+│   │   ├── app/
+│   │   ├── components/
+│   │   ├── context/
+│   │   └── lib/
+│   └── package.json
+├── backend/              # Backend Database & API services (Prisma ORM, schemas, seeders)
+│   ├── prisma/
+│   ├── src/
+│   │   ├── api/
+│   │   └── lib/
+│   └── package.json
+└── package.json          # Root workspace manifest
 ```
 
 ---
 
-## ⚙️ Installation
+## ⚙️ Installation & Running
 
 ```bash
+# 1. Clone repository
 git clone https://github.com/your-username/aura-luxury-audio.git
-
 cd aura-luxury-audio
 
+# 2. Install workspace dependencies
 npm install
 
-npx prisma generate
+# 3. Setup Database (Backend)
+npm run db:push
+npm run db:seed
 
-npx prisma db seed
-
-npm run dev
+# 4. Start Development Server (Frontend)
+npm run dev:frontend
 ```
 
 ---
