@@ -21,9 +21,10 @@ export default function Header() {
     { name: "Amplifiers", href: "/amplifiers" },
     { name: "Turntables", href: "/turntables" },
     { name: "Accessories", href: "/accessories" },
+    { name: "Design Your Room", href: "/design-your-room" },
     { name: "Book Demo", href: "/book-demo" },
     { name: "Track Order", href: "/track-order" },
-  ];
+  ]; 
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/5 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-4 md:px-margin-desktop py-4">

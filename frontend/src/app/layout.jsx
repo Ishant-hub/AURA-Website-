@@ -1,8 +1,10 @@
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import { AuthProvider } from "@/context/AuthContext";
+import { AuraConciergeProvider } from "@/context/AuraConciergeContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AuraGlobalConcierge from "@/components/aura/AuraGlobalConcierge";
 
 export const metadata = {
   title: "AURA | Experience Sound Beyond Imagination",
@@ -21,11 +23,14 @@ export default function RootLayout({ children }) {
       <body className="min-h-full bg-background text-on-background flex flex-col selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden font-body-md text-body-md">
         <AuthProvider>
           <CartProvider>
-            <Header />
-            <div className="flex-1 flex flex-col">
-              {children}
-            </div>
-            <Footer />
+            <AuraConciergeProvider>
+              <Header />
+              <div className="flex-1 flex flex-col">
+                {children}
+              </div>
+              <Footer />
+              <AuraGlobalConcierge />
+            </AuraConciergeProvider>
           </CartProvider>
         </AuthProvider>
       </body>

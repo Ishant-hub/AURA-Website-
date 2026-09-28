@@ -5,16 +5,24 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 import { useAuth } from "@/context/AuthContext";
-import { ArrowLeft, Check, ShoppingBag } from "lucide-react";
+import { useAuraConcierge } from "@/context/AuraConciergeContext";
+import { ArrowLeft, Check, ShoppingBag, Sparkles } from "lucide-react";
 import { get4KImageUrl } from "@/lib/utils";
 
 export default function ProductDetailClient({ product }) {
   const { addToCart } = useCart();
   const { requireAuth, user } = useAuth();
+  const { updateProductContext, openConcierge } = useAuraConcierge();
   const searchParams = useSearchParams();
   const [selectedFinish, setSelectedFinish] = useState("matte-black");
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
+
+  // Sync active product context with AURA AI
+  useEffect(() => {
+    updateProductContext(product);
+    return () => updateProductContext(null);
+  }, [product, updateProductContext]);
 
   // Parse specifications JSON
   let specsObj = {};
@@ -166,6 +174,13 @@ export default function ProductDetailClient({ product }) {
               >
                 SCHEDULE PRIVATE LISTENING
               </Link>
+              <button
+                type="button"
+                onClick={() => openConcierge(`Tell me about the acoustic character, engineering, and pairing options for the ${product.name}`)}
+                className="w-full glass-panel border border-primary/30 hover:border-primary py-4 rounded-xl font-label-caps text-xs tracking-widest font-bold text-center flex items-center justify-center gap-2 text-primary hover:bg-primary/5 transition-all duration-300 cursor-pointer uppercase shadow-lg shadow-primary/5"
+              >
+                <span className="text-primary font-bold">✦</span> CONSULT AURA CONCIERGE
+              </button>
             </div>
           </div>
 

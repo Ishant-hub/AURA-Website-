@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 
 export default function BookDemo() {
@@ -14,6 +14,29 @@ export default function BookDemo() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  // Pre-populate message or showroom from referral queries (AURA AI or 3D Room Configurator)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const prefillMessage = params.get("message");
+      const prefillProduct = params.get("product");
+      const prefillShowroom = params.get("showroom");
+
+      if (prefillMessage) {
+        setFormData((prev) => ({ ...prev, message: prefillMessage }));
+      } else if (prefillProduct) {
+        setFormData((prev) => ({
+          ...prev,
+          message: `I would like to arrange a private listening session to audition the ${prefillProduct}.`,
+        }));
+      }
+
+      if (prefillShowroom) {
+        setFormData((prev) => ({ ...prev, showroom: prefillShowroom.toLowerCase() }));
+      }
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
