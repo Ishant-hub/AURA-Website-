@@ -22,6 +22,14 @@ export default function RoomControls({
   setAudioSetup,
   budget,
   setBudget,
+<<<<<<< HEAD
+=======
+  selectedSpeaker = "eclipse-x1",
+  setSelectedSpeaker,
+  savedDesignsCount = 0,
+  onOpenSaveModal,
+  onOpenMyDesignsModal,
+>>>>>>> master
   onCameraPreset,
   onSaveDesign,
   onLoadDesign,
@@ -77,6 +85,30 @@ export default function RoomControls({
     { id: "5.1.2", label: "5.1.2 Atmos", desc: "Adds downward ceiling acoustic modules" },
   ];
 
+<<<<<<< HEAD
+=======
+  const speakers = [
+    {
+      id: "eclipse-x1",
+      label: "Eclipse X1 (Pair)",
+      badge: "Flagship",
+      desc: "1500W Active • 18Hz Subterranean Bass & Majestic Dynamics",
+    },
+    {
+      id: "aether-mono-s1",
+      label: "Aether Mono S1 (Pair)",
+      badge: "Sculptural",
+      desc: "Ribbon Tweeter • Carbon Fiber Purity & Silky Harmonic Air",
+    },
+    {
+      id: "pulse-monitor-r4",
+      label: "Pulse Monitor R4 (Pair)",
+      badge: "Near-Field",
+      desc: "Studio Monitor • Pristine Near-Field Imaging & Controlled Bass",
+    },
+  ];
+
+>>>>>>> master
   return (
     <div className="space-y-6">
       {/* 2D / 3D Dual View Toggle & Camera Presets Header */}
@@ -300,6 +332,7 @@ export default function RoomControls({
         </div>
       </div>
 
+<<<<<<< HEAD
       {/* 4. DESIGN ACTIONS: SAVE / LOAD / RESET */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
         <div className="flex items-center gap-3">
@@ -314,6 +347,78 @@ export default function RoomControls({
             className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary font-label-caps text-xs tracking-widest uppercase font-semibold text-white transition-colors cursor-pointer"
           >
             <FolderOpen className="w-3.5 h-3.5 text-primary" /> Load Design
+=======
+      {/* 4. PRIMARY SPEAKER SELECTION */}
+      <div className="glass-panel p-6 rounded-2xl border-white/5 space-y-4">
+        <div className="flex items-center justify-between border-b border-white/5 pb-3">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <h3 className="font-label-caps text-xs text-primary tracking-widest font-bold uppercase">
+              Primary Loudspeakers
+            </h3>
+          </div>
+          <span className="text-[10px] font-mono text-on-surface-variant/60 uppercase">
+            Acoustic Profile Voicing
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {speakers.map((spk) => {
+            const isSelected = selectedSpeaker === spk.id;
+            return (
+              <button
+                key={spk.id}
+                onClick={() => setSelectedSpeaker?.(spk.id)}
+                className={`p-3.5 rounded-xl border text-left flex flex-col justify-between transition-all cursor-pointer ${
+                  isSelected
+                    ? "bg-primary/10 border-primary shadow-lg shadow-primary/10"
+                    : "bg-white/[0.02] border-white/5 hover:border-white/20 text-on-surface-variant"
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <h4
+                      className={`text-xs font-semibold uppercase tracking-wider ${
+                        isSelected ? "text-primary" : "text-white"
+                      }`}
+                    >
+                      {spk.label}
+                    </h4>
+                    <span className="text-[9px] font-label-caps tracking-widest text-primary/80 uppercase px-1.5 py-0.5 rounded bg-primary/10">
+                      {spk.badge}
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-on-surface-variant/75 font-light leading-relaxed">
+                    {spk.desc}
+                  </p>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* 5. DESIGN ACTIONS: SAVE / LOAD / RESET */}
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+        <div className="flex items-center gap-3">
+          <button
+            onClick={onOpenSaveModal || onSaveDesign}
+            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-primary text-on-primary font-label-caps text-xs tracking-widest uppercase font-bold hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer shadow-lg shadow-primary/20"
+          >
+            <Save className="w-3.5 h-3.5" /> Save Design
+          </button>
+          <button
+            onClick={onOpenMyDesignsModal || onLoadDesign}
+            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary font-label-caps text-xs tracking-widest uppercase font-semibold text-white transition-colors cursor-pointer"
+          >
+            <FolderOpen className="w-3.5 h-3.5 text-primary" />
+            <span>My Designs</span>
+            {savedDesignsCount > 0 && (
+              <span className="px-2 py-0.5 rounded-full bg-primary/20 text-primary font-mono text-[10px] font-bold">
+                {savedDesignsCount}
+              </span>
+            )}
+>>>>>>> master
           </button>
         </div>
 

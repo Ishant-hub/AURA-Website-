@@ -313,6 +313,95 @@ export async function processAuraQuery(userQuery, context, history = []) {
   // Simulate calm, premium thinking duration
   await new Promise((r) => setTimeout(r, 650));
 
+<<<<<<< HEAD
+=======
+  // 0. ROOM CONFIGURATOR / SOUND PREVIEW INTENT
+  if (
+    query.includes("sound like") ||
+    query.includes("how does this room sound") ||
+    query.includes("sound preview") ||
+    query.includes("sound character") ||
+    (query.includes("hear") && (query.includes("room") || query.includes("speaker") || query.includes("setup")))
+  ) {
+    if (roomConfig && roomConfig.dimensions) {
+      const {
+        dimensions,
+        roomType = "home-cinema",
+        audioSetup = "5.1",
+        selectedSpeaker = "eclipse-x1",
+      } = roomConfig;
+
+      const speakerMentioned = query.includes("eclipse")
+        ? "Eclipse X1"
+        : query.includes("aether")
+        ? "Aether Mono S1"
+        : query.includes("pulse")
+        ? "Pulse Monitor R4"
+        : null;
+
+      const targetSpeaker =
+        speakerMentioned ||
+        (selectedSpeaker.includes("aether")
+          ? "Aether Mono S1"
+          : selectedSpeaker.includes("pulse")
+          ? "Pulse Monitor R4"
+          : "Eclipse X1");
+
+      const isFeet = dimensions.unit === "FT";
+      const vol = Math.round(dimensions.length * dimensions.width * dimensions.height);
+      const volCuFt = isFeet ? vol : Math.round(vol * 35.3147);
+
+      let roomAcousticDesc = "";
+      if (volCuFt < 1800) {
+        roomAcousticDesc =
+          "an intimate acoustic space with immediate, punchy low-end and tightly focused stereophonic imaging";
+      } else if (volCuFt > 3500) {
+        roomAcousticDesc =
+          "a grand listening salon where high-volume air displacement allows natural reverb dispersion and an expansive holographic soundstage";
+      } else {
+        roomAcousticDesc =
+          "a balanced medium studio offering effortless dynamic headroom and cohesive acoustic pressurization";
+      }
+
+      let speakerSonicVoicing = "";
+      if (targetSpeaker === "Eclipse X1") {
+        speakerSonicVoicing =
+          "With the **Eclipse X1**, expect subterranean bass authority reaching down to 18Hz, immense visceral dynamic punch, and an authoritative soundstage that effortlessly commands this room.";
+      } else if (targetSpeaker === "Aether Mono S1") {
+        speakerSonicVoicing =
+          "With the **Aether Mono S1**, the ribbon tweeter delivers ultra-delicate high-frequency air, organic vocal textures, and laser-precise imaging without cabinet resonance.";
+      } else {
+        speakerSonicVoicing =
+          "With the **Pulse Monitor R4**, you achieve pinpoint near-field clarity, fast transient speed, and tightly controlled bass ideal for critical listening.";
+      }
+
+      const setupDesc =
+        audioSetup === "5.1.2"
+          ? "Dolby Atmos height modules add vertical spatial envelopment."
+          : audioSetup !== "2.0"
+          ? "The dedicated subwoofer handles sub-80Hz pressure, allowing your main speakers to focus purely on crystalline midrange."
+          : "Pure reference two-channel stereo delivers pristine phase coherence and focus.";
+
+      return {
+        type: "text",
+        content:
+          `In your **${dimensions.length} × ${dimensions.width} × ${dimensions.height} ${dimensions.unit}** ${(roomType || "").replace("-", " ")} configured with **${audioSetup}**:\n\n` +
+          `• **Room Acoustics**: Your space is ${roomAcousticDesc}.\n` +
+          `• **Acoustic Character with ${targetSpeaker}**: ${speakerSonicVoicing}\n` +
+          `• **Multi-Channel Field**: ${setupDesc}\n\n` +
+          `🎧 **Audition It Now**: Click **▶ Preview Sound** in the **Experience Your Room** panel right in the 3D studio to hear an illustrative 7-second audio preview tailored to this configuration.`,
+        followUpChips: [
+          {
+            label: `Compare with ${targetSpeaker === "Eclipse X1" ? "Aether Mono S1" : "Eclipse X1"}`,
+            prompt: `What would this room sound like with the ${targetSpeaker === "Eclipse X1" ? "Aether Mono S1" : "Eclipse X1"}?`,
+          },
+          { label: "Book Showroom Audition", prompt: "I want to hear this setup in person at an AURA showroom" },
+        ],
+      };
+    }
+  }
+
+>>>>>>> master
   // 1. DIRECT PRODUCT COMPARISON INTENTS
   if (
     query.includes("compare") ||
