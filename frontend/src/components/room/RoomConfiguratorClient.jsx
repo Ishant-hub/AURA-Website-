@@ -8,12 +8,6 @@ import Room2DCanvas from "./Room2DCanvas";
 import RoomControls from "./RoomControls";
 import AcousticInsights from "./AcousticInsights";
 import RecommendedSystem from "./RecommendedSystem";
-<<<<<<< HEAD
-import { useAuraConcierge } from "@/context/AuraConciergeContext";
-import { useCart } from "@/context/CartContext";
-
-const SAVED_DESIGNS_KEY = "aura_room_designs_v1";
-=======
 import SoundPreviewSection from "./SoundPreviewSection";
 import SaveDesignModal from "./SaveDesignModal";
 import MyDesignsModal from "./MyDesignsModal";
@@ -21,7 +15,6 @@ import { useAuraConcierge } from "@/context/AuraConciergeContext";
 import { useCart } from "@/context/CartContext";
 
 const SAVED_DESIGNS_KEY = "aura_room_designs";
->>>>>>> master
 
 export default function RoomConfiguratorClient() {
   const { updateRoomContext, openConcierge } = useAuraConcierge();
@@ -38,10 +31,7 @@ export default function RoomConfiguratorClient() {
   });
   const [roomType, setRoomType] = useState("home-cinema");
   const [audioSetup, setAudioSetup] = useState("5.1");
-<<<<<<< HEAD
-=======
   const [selectedSpeaker, setSelectedSpeaker] = useState("eclipse-x1");
->>>>>>> master
   const [budget, setBudget] = useState(null);
   const [activeView, setActiveView] = useState("3d");
   const [cameraPreset, setCameraPreset] = useState(null);
@@ -49,8 +39,6 @@ export default function RoomConfiguratorClient() {
   const [notification, setNotification] = useState("");
   const [itemAdded, setItemAdded] = useState(false);
 
-<<<<<<< HEAD
-=======
   // Modal States
   const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
   const [isMyDesignsOpen, setIsMyDesignsOpen] = useState(false);
@@ -73,19 +61,12 @@ export default function RoomConfiguratorClient() {
     }
   }, []);
 
->>>>>>> master
   // Sync state with AURA AI Concierge
   useEffect(() => {
     updateRoomContext({
       dimensions,
       roomType,
       audioSetup,
-<<<<<<< HEAD
-      budget,
-      selectedEquipment,
-    });
-  }, [dimensions, roomType, audioSetup, budget, selectedEquipment, updateRoomContext]);
-=======
       selectedSpeaker,
       budget,
       selectedEquipment,
@@ -99,55 +80,12 @@ export default function RoomConfiguratorClient() {
     selectedEquipment,
     updateRoomContext,
   ]);
->>>>>>> master
 
   // Scroll to studio
   const handleStartDesigning = () => {
     studioRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-<<<<<<< HEAD
-  // Save Design
-  const handleSaveDesign = () => {
-    try {
-      const design = {
-        id: `design_${Date.now()}`,
-        name: `${roomType.replace("-", " ").toUpperCase()} (${dimensions.length}x${dimensions.width} ${dimensions.unit})`,
-        date: new Date().toLocaleDateString(),
-        dimensions,
-        roomType,
-        audioSetup,
-      };
-
-      const existing = JSON.parse(localStorage.getItem(SAVED_DESIGNS_KEY) || "[]");
-      existing.unshift(design);
-      localStorage.setItem(SAVED_DESIGNS_KEY, JSON.stringify(existing.slice(0, 5)));
-
-      setNotification("Room design saved successfully to your browser session.");
-      setTimeout(() => setNotification(""), 3500);
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
-  // Load Design
-  const handleLoadDesign = () => {
-    try {
-      const existing = JSON.parse(localStorage.getItem(SAVED_DESIGNS_KEY) || "[]");
-      if (existing.length === 0) {
-        setNotification("No saved custom designs found. Restoring reference studio preset.");
-        setTimeout(() => setNotification(""), 3500);
-        return;
-      }
-      const latest = existing[0];
-      setDimensions(latest.dimensions);
-      setRoomType(latest.roomType);
-      setAudioSetup(latest.audioSetup);
-      setNotification(`Loaded design: ${latest.name}`);
-      setTimeout(() => setNotification(""), 3500);
-    } catch (e) {
-      console.error(e);
-=======
   // Save Design with custom name
   const handleSaveDesign = (designName) => {
     try {
@@ -223,7 +161,6 @@ export default function RoomConfiguratorClient() {
       setTimeout(() => setNotification(""), 3000);
     } catch (e) {
       console.error("Delete design error", e);
->>>>>>> master
     }
   };
 
@@ -237,10 +174,7 @@ export default function RoomConfiguratorClient() {
     });
     setRoomType("home-cinema");
     setAudioSetup("5.1");
-<<<<<<< HEAD
-=======
     setSelectedSpeaker("eclipse-x1");
->>>>>>> master
     setCameraPreset("reset");
     setSelectedEquipment(null);
     setNotification("Room parameters reset to flagship defaults.");
@@ -414,11 +348,6 @@ export default function RoomConfiguratorClient() {
           setAudioSetup={setAudioSetup}
           budget={budget}
           setBudget={setBudget}
-<<<<<<< HEAD
-          onCameraPreset={setCameraPreset}
-          onSaveDesign={handleSaveDesign}
-          onLoadDesign={handleLoadDesign}
-=======
           selectedSpeaker={selectedSpeaker}
           setSelectedSpeaker={setSelectedSpeaker}
           savedDesignsCount={savedDesigns.length}
@@ -427,15 +356,11 @@ export default function RoomConfiguratorClient() {
           onCameraPreset={setCameraPreset}
           onSaveDesign={() => setIsSaveModalOpen(true)}
           onLoadDesign={() => setIsMyDesignsOpen(true)}
->>>>>>> master
           onResetDesign={handleResetDesign}
           activeView={activeView}
           setActiveView={setActiveView}
         />
 
-<<<<<<< HEAD
-        {/* 4. REAL-TIME ACOUSTIC ROOM INSIGHTS */}
-=======
         {/* 4. EXPERIENCE YOUR ROOM — SOUND PREVIEW */}
         <SoundPreviewSection
           dimensions={dimensions}
@@ -445,25 +370,18 @@ export default function RoomConfiguratorClient() {
         />
 
         {/* 5. REAL-TIME ACOUSTIC ROOM INSIGHTS */}
->>>>>>> master
         <AcousticInsights
           dimensions={dimensions}
           roomType={roomType}
           audioSetup={audioSetup}
         />
 
-<<<<<<< HEAD
-        {/* 5. RECOMMENDED AURA SYSTEM */}
-=======
         {/* 6. RECOMMENDED AURA SYSTEM */}
->>>>>>> master
         <RecommendedSystem
           dimensions={dimensions}
           roomType={roomType}
           audioSetup={audioSetup}
         />
-<<<<<<< HEAD
-=======
 
         {/* 7. MODALS: SAVE DESIGN & MY DESIGNS */}
         <SaveDesignModal
@@ -485,7 +403,6 @@ export default function RoomConfiguratorClient() {
           onLoadDesign={handleLoadDesign}
           onDeleteDesign={handleDeleteDesign}
         />
->>>>>>> master
       </section>
     </main>
   );

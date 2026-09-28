@@ -22,14 +22,11 @@ export default function RoomControls({
   setAudioSetup,
   budget,
   setBudget,
-<<<<<<< HEAD
-=======
   selectedSpeaker = "eclipse-x1",
   setSelectedSpeaker,
   savedDesignsCount = 0,
   onOpenSaveModal,
   onOpenMyDesignsModal,
->>>>>>> master
   onCameraPreset,
   onSaveDesign,
   onLoadDesign,
@@ -85,8 +82,6 @@ export default function RoomControls({
     { id: "5.1.2", label: "5.1.2 Atmos", desc: "Adds downward ceiling acoustic modules" },
   ];
 
-<<<<<<< HEAD
-=======
   const speakers = [
     {
       id: "eclipse-x1",
@@ -108,7 +103,6 @@ export default function RoomControls({
     },
   ];
 
->>>>>>> master
   return (
     <div className="space-y-6">
       {/* 2D / 3D Dual View Toggle & Camera Presets Header */}
@@ -332,22 +326,6 @@ export default function RoomControls({
         </div>
       </div>
 
-<<<<<<< HEAD
-      {/* 4. DESIGN ACTIONS: SAVE / LOAD / RESET */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={onSaveDesign}
-            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary font-label-caps text-xs tracking-widest uppercase font-semibold text-white transition-colors cursor-pointer"
-          >
-            <Save className="w-3.5 h-3.5 text-primary" /> Save Design
-          </button>
-          <button
-            onClick={onLoadDesign}
-            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary font-label-caps text-xs tracking-widest uppercase font-semibold text-white transition-colors cursor-pointer"
-          >
-            <FolderOpen className="w-3.5 h-3.5 text-primary" /> Load Design
-=======
       {/* 4. PRIMARY SPEAKER SELECTION */}
       <div className="glass-panel p-6 rounded-2xl border-white/5 space-y-4">
         <div className="flex items-center justify-between border-b border-white/5 pb-3">
@@ -418,7 +396,6 @@ export default function RoomControls({
                 {savedDesignsCount}
               </span>
             )}
->>>>>>> master
           </button>
         </div>
 

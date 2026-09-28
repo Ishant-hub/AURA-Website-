@@ -289,17 +289,10 @@ export default function Room3DCanvas({
 
     // --- 2. ROOM SHELL (FLOOR, WALLS, CEILING) — Charcoal/Graphite Premium ---
 
-<<<<<<< HEAD
-    // Floor — dark charcoal with slight warmth, polished feel
+    // Floor — warm wood tone, polished feel
     const floorGeo = new THREE.PlaneGeometry(widthM, lengthM);
     const floorMat = new THREE.MeshStandardMaterial({
-      color: 0x222020,
-=======
-    // floor  — dark charcoal with slight warmth, polished feel
-    const floorGeo = new THREE.PlaneGeometry(widthM, lengthM);
-    const floorMat = new THREE.MeshStandardMaterial({
-      color: 0xFFB58B62,
->>>>>>> master
+      color: 0xB58B62,
       roughness: 0.3,
       metalness: 0.08,
     });
@@ -320,13 +313,9 @@ export default function Room3DCanvas({
     grid.material.transparent = true;
     scene.add(grid);
 
-    // Wall material — deep graphite, clearly distinguishable from pure black
+    // Wall material — warm architectural tone
     const wallMat = new THREE.MeshStandardMaterial({
-<<<<<<< HEAD
-      color: 0x1c1a18,
-=======
-      color: 0xFFB89B7A,
->>>>>>> master
+      color: 0xB89B7A,
       roughness: 0.82,
       metalness: 0.02,
     });

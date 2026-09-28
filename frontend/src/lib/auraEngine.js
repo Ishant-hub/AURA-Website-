@@ -313,8 +313,6 @@ export async function processAuraQuery(userQuery, context, history = []) {
   // Simulate calm, premium thinking duration
   await new Promise((r) => setTimeout(r, 650));
 
-<<<<<<< HEAD
-=======
   // 0. ROOM CONFIGURATOR / SOUND PREVIEW INTENT
   if (
     query.includes("sound like") ||
@@ -400,8 +398,6 @@ export async function processAuraQuery(userQuery, context, history = []) {
       };
     }
   }
-
->>>>>>> master
   // 1. DIRECT PRODUCT COMPARISON INTENTS
   if (
     query.includes("compare") ||
