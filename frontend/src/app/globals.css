@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+@theme {
+  --color-on-tertiary-fixed: #1a1c1c;
+  --color-inverse-surface: #e5e2e1;
+  --color-surface-bright: #3a3939;
+  --color-tertiary: #cecece;
+  --color-on-primary-container: #554300;
+  --color-on-background: #e5e2e1;
+  --color-background: #131313;
+  --color-on-error-container: #ffdad6;
+  --color-error-container: #93000a;
+  --color-on-secondary-fixed-variant: #474746;
+  --color-on-surface-variant: #d0c5af;
+  --color-on-tertiary-container: #434546;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-on-secondary-container: #b7b5b4;
+  --color-surface-variant: #353534;
+  --color-outline-variant: #4d4635;
+  --color-surface-dim: #131313;
+  --color-on-tertiary: #2f3131;
+  --color-inverse-primary: #735c00;
+  --color-secondary-container: #474746;
+  --color-surface-container-high: #2a2a2a;
+  --color-tertiary-container: #b2b3b3;
+  --color-secondary-fixed: #e5e2e1;
+  --color-secondary: #c8c6c5;
+  --color-outline: #99907c;
+  --color-on-primary-fixed: #241a00;
+  --color-surface-tint: #e9c349;
+  --color-primary-container: #d4af37;
+  --color-surface-container-highest: #353534;
+  --color-error: #ffb4ab;
+  --color-on-surface: #e5e2e1;
+  --color-on-error: #690005;
+  --color-on-primary: #3c2f00;
+  --color-primary: #f2ca50;
+  --color-primary-fixed-dim: #e9c349;
+  --color-inverse-on-surface: #313030;
+  --color-primary-fixed: #ffe088;
+  --color-surface-container-low: #1c1b1b;
+  --color-tertiary-fixed: #e2e2e2;
+  --color-surface: #131313;
+  --color-surface-container: #201f1f;
+  --color-on-secondary: #313030;
+  --color-on-primary-fixed-variant: #574500;
+  --color-secondary-fixed-dim: #c8c6c5;
+  --color-tertiary-fixed-dim: #c6c6c7;
+  --color-on-secondary-fixed: #1c1b1b;
+  --color-on-tertiary-fixed-variant: #454747;
+
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  --spacing-gutter: 32px;
+  --spacing-container-max: 1440px;
+  --spacing-margin-desktop: 80px;
+  --spacing-unit: 8px;
+  --spacing-section-gap: 160px;
+  --spacing-margin-mobile: 20px;
+
+  --font-body-md: "Manrope", sans-serif;
+  --font-body-lg: "Manrope", sans-serif;
+  --font-label-caps: "Hanken Grotesk", sans-serif;
+  --font-display-lg-mobile: "Manrope", sans-serif;
+  --font-display-lg: "Manrope", sans-serif;
+  --font-headline-md: "Manrope", sans-serif;
+
+  --font-size-body-md: 16px;
+  --font-size-body-lg: 18px;
+  --font-size-label-caps: 12px;
+  --font-size-display-lg-mobile: 40px;
+  --font-size-display-lg: 72px;
+  --font-size-headline-md: 32px;
+}
+
+body {
+  background-color: #0A0A0A;
+  color: #e5e2e1;
+  overflow-x: hidden;
+  font-family: var(--font-body-md);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-card:hover {
+  border-color: #f2ca50;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 40px -10px rgba(242, 202, 80, 0.2);
+}
+
+.gold-glint:hover {
+  border-color: #D4AF37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.gold-glow:hover {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+}
+
+.step-transition {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hidden-step {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 8rem; /* Adds equal spacing between scrolling brand names */
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.reveal-animation {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-animation.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-gradient-overlay {
+  background: linear-gradient(0deg, #131313 0%, rgba(10, 10, 10, 0.65) 50%, rgba(10, 10, 10, 0.85) 100%);
+}
+
+/* Typography styles matching the original design system exactly */
+.font-body-md {
+  font-family: var(--font-body-md);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+.font-body-lg {
+  font-family: var(--font-body-lg);
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+.font-label-caps {
+  font-family: var(--font-label-caps);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+
+.font-display-lg {
+  font-family: var(--font-display-lg);
+  font-size: 72px;
+  line-height: 80px;
+  letter-spacing: -0.04em;
+  font-weight: 200;
+}
+
+@media (max-w: 768px) {
+  .font-display-lg {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+  }
+}
+
+.font-headline-md {
+  font-family: var(--font-headline-md);
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+  font-weight: 300;
+}
+
+/* Animation helpers */
+.transition-delay-100 {
+  transition-delay: 100ms;
+}
+.transition-delay-200 {
+  transition-delay: 200ms;
+}
+.transition-delay-300 {
+  transition-delay: 300ms;
+}
+
+/* Fallback text size class utilities matching original style parameters */
+.text-body-md {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  letter-spacing: 0.01em !important;
+}
+
+.text-body-lg {
+  font-size: 18px !important;
+  line-height: 28px !important;
+  letter-spacing: 0.01em !important;
+}
+
+.text-label-caps {
+  font-size: 12px !important;
+  line-height: 16px !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase;
+}
+
+.text-display-lg-mobile {
+  font-size: 40px !important;
+  line-height: 48px !important;
+  letter-spacing: -0.02em !important;
+}
+
+.text-display-lg {
+  font-size: 72px !important;
+  line-height: 80px !important;
+  letter-spacing: -0.04em !important;
+}
+
+@media (max-w: 768px) {
+  .md\:text-display-lg {
+    font-size: 40px !important;
+    line-height: 48px !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+
+.text-headline-md {
+  font-size: 32px !important;
+  line-height: 40px !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* ─── AURA Concierge Animations ─── */
+
+/* Subtle breathing glow for the floating AURA button */
+@keyframes auraBreathing {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
+}
+
+.aura-breathing-glow {
+  animation: auraBreathing 4s ease-in-out infinite;
+}
+
+/* Smooth panel entrance animation */
+@keyframes auraSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Fade-in for message bubbles */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom thin scrollbar for AURA panel */
+.aura-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.aura-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.aura-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+.aura-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
