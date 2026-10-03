@@ -21,6 +21,7 @@ Designed using Next.js and Prisma, the platform combines elegant design with pow
 - 🎨 Modern luxury UI built with Tailwind CSS
 
 ---
+Live Link : https://aura-luxe-audio.vercel.app/
 
 ## 🛠️ Tech Stack
 
